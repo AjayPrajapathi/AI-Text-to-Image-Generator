@@ -1,11 +1,11 @@
-// import userModel from "../Models/userModel";
+// import userModel from "../Models/userModel.js";
 // import bcrypt from "bcrypt";
 // import jwt from "jsonwebtoken";
 
-// const registerUser = async (req, res) => {
+// export const registerUser = async (req, res) => {
 //   try {
 //     const { name, email, password } = req.body;
-//     if (name || email || password) {
+//     if (!name || !email || !password) {
 //       return res.json({ success: false, message: "missing Details" });
 //     }
 //     const salt = await bcrypt.genSalt(10);
@@ -25,7 +25,7 @@
 //     res.json({ success: false, message: error.message });
 //   }
 // };
-// const loginUser = async (req, res) => {
+// export const loginUser = async (req, res) => {
 //   try {
 //     const { email, password } = req.body;
 //     const user = await userModel.findOne({ email });
@@ -44,7 +44,19 @@
 //     res.json({ success: false, message: error.message });
 //   }
 // };
-// // export default registerUser,loginUser;
+// export const userCredits=async (req,res)=>{
+//       try {
+//           const {userId}=req.body
+//           const user=await userModel.findById(userId)
+//           res.json({success:true,credits:user.creditBalance,user:{name:user.name}})
+//       } catch (error) {
+//           console.log(error.message)
+//           res.json({success:false,message:error.message})
+//       }
+  
+  
+//   }
+// export default registerUser,loginUser;
 
 
 

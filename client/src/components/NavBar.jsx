@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 const NavBar = () => {
-  const { user,setShowLogin } = useContext(AppContext);
+  const { user,setShowLogin,logout,credit } = useContext(AppContext);
   const navigate = useNavigate();
 
   return (
@@ -33,16 +33,16 @@ const NavBar = () => {
                 className="text-2xl text-orange-800"
                 icon={faStar}
               />
-              <p className="text-xs sm:text-sm font-medium ">credit Left : 5</p>
+              <p className="text-xs sm:text-sm font-medium ">credit Left : {credit}</p>
             </button>
-            <p className="text-gray-600 max-sm:hidden pl-4">hi,greet stack</p>
+            <p className="text-gray-600 max-sm:hidden pl-4">{user.name}</p>
             <div className="relative group">
               {/* <FontAwesomeIcon className="w-10 drop-shadow" icon={faUser} /> */}
 
               <img src={assets.profile_icon} className="w-10 drop-shadow" />
               <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12">
                 <ul className="list-none m-0 p-2 bg-white rounded-md border text-sm">
-                  <li className="py-1 px-2 cursor-pointer pr-10">Logout</li>
+                  <li onClick={logout} className="py-1 px-2 cursor-pointer pr-10">Logout</li>
                 </ul>
               </div>
             </div>
